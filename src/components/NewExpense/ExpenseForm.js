@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
+  console.log(props);
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -36,12 +37,13 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expeseData = {
+    const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    props.onSaveExpenseData(expeseData);
+    props.onSaveExpenseData(expenseData); //expenseData will be send to New expense onSaveExpenseData props as an argument where it will be executed in attached handler function
+    //expenseData contains title,amount  and date
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");

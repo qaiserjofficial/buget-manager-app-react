@@ -8,7 +8,9 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    props.onAddExpense(expenseData);
+    props.onAddExpense(expenseData); //this will transfer date to app.js as an argument to the onAddExpense props
+    //expenseData contains title,amount, date and also id
+    //Lifting data up
   };
   return (
     <div className="new-expense">
